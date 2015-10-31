@@ -45,9 +45,9 @@ using SikuliXRobotLibrary. To run the demo, run::
 
 E.g.::
 
-    jybot -d C:\demo\logs -i Win8CalculatorTest C:\demo\calc_test_suite
+    jybot -d C:\SikuliXRobotLibrary\demo\logs -i CalculatorTest C:\SikuliXRobotLibrary\demo\calc_test_suite
     Note: C:\demo\logs directory must be created before running the script
 	
 
-.. _Keyword Documentation: https://confluence.flnltd.com/display/FREEL/Custom+SikuliX+Robot+Library
+.. _Keyword Documentation: https://github.com/jaredfin/SikuliXRobotLibrary/doc/SikuliXRobotLibrary.html
 .. _Robot Framework User Guide: http://code.google.com/p/robotframework/wiki/UserGuide
