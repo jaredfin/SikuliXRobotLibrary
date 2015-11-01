@@ -14,8 +14,8 @@ class _ElementKeywords(KeywordGroup):
     Search region or setROI() value is set to the application in focus as default.
     Locators or patterns must be any of the following format: <image.png>, <image.png> = <sensitivity from 0.00 to 0.99>, <string>
     For example:
-    |  Click Pattern    freelancerlogo.png = 0.90
-    |  Click Pattern    freelancerlogo.png
+    |  Click Pattern    pattern.png = 0.90
+    |  Click Pattern    pattern.png
     |  Click Pattern    Password
     """
     
