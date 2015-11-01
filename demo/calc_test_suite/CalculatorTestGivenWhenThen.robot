@@ -1,5 +1,4 @@
 *** Settings ***
-Library           SikuliXRobotLibrary
 Resource          CalculatorTestConstants.robot
 Resource          CalculatorTestGlobalHelpers.robot
 

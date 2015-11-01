@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation     Calculator test for image assertion.
-Library           SikuliXRobotLibrary
 Resource          CalculatorTestGivenWhenThen.robot
 Suite Setup       Set Default Pattern Library Directory
 Test Teardown     Close "Calculator" Application

@@ -220,9 +220,11 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       * if successful, this should run the following test:
 
+      ---------------------------------------------------------------------
+      * Main Test file: CalculatorTest.robot
+
       *** Settings ***
       Documentation     Calculator test suite for the common operations. Does not use patterns as parameters in the keywords but uses offsets of regions instead
-      Library           SikuliXRobotLibrary
       Resource          CalculatorTestGivenWhenThen.robot
       Test Setup        Open "Calculator" Application
       Test Teardown     Close "Calculator" Application
@@ -246,7 +248,14 @@ ELI5 Installation Instructions (Windows 7 or 8)
           When User Clicks "Equals" Button
           Then Actual Result Should Be Equal To "${expected_result}"
 
-  Note: SikuliX takes over the mouse pointer, make sure to not use the test pc while running the tests
+      ---------------------------------------------------------------------
+      * The SikuliXRobotLibrary library is set in the resource: CalculatorTestGlobalHelpers.robot
+
+      *** Settings ***
+      Library           SikuliXRobotLibrary
+
+
+  Note: SikuliX takes over the mouse pointer and keyboard control, you may opt to setup the scripts in another node in Jenkins then run it remotely.
 
 ![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png)
 

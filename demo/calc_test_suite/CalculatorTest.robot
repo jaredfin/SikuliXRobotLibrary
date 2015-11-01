@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation     Calculator test suite for the common operations. Does not use patterns as parameters in the keywords but uses offsets of regions instead
-Library           SikuliXRobotLibrary
 Resource          CalculatorTestGivenWhenThen.robot
 Test Setup        Open "Calculator" Application
 Test Teardown     Close "Calculator" Application
