@@ -141,62 +141,62 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
 
 1. Install Java 8. 
 
-Link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+  Link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
-i. Run java -version in command promt, java version should be displayed, otherwise, add C:\Program Files\Java\jre<version>\bin in Environment Variable
+  i. Run java -version in command promt, java version should be displayed, otherwise, add C:\Program Files\Java\jre<version>\bin in Environment Variable
 
 2. Install Jython 2.7:
 
-Link: http://www.jython.org/downloads.html
+  Link: http://www.jython.org/downloads.html
 
-i. Download the installer then make sure to accept the license agreement during installation
+  i. Download the installer then make sure to accept the license agreement during installation
 
-ii. Add 'C:\jython2.7.0\bin' in Environment variables
+  ii. Add 'C:\jython2.7.0\bin' in Environment variables
 
-iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed
+  iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed
       Jython 2.7.0
 
 3. Install Robotframework from the source:
 
-Link: https://pypi.python.org/pypi/robotframework
+  Link: https://pypi.python.org/pypi/robotframework
 
-i. Download and extract the rf source (robotframework-2.9.2.tar.gz (md5)) to a local directory
+  i. Download and extract the rf source (robotframework-2.9.2.tar.gz (md5)) to a local directory
 
-ii. cd to the extracted directory where 'setup.py is located
+  ii. cd to the extracted directory where 'setup.py is located
 
-iii. pen a command prompt and run: jython setup.py install
+  iii. pen a command prompt and run: jython setup.py install
     * jybot.bat will be created in C:\jython2.7.0\bin
     * C:\jython2.7.0\Lib\site-packages\robotframework-2.9.2-py2.7.egg will be created
-    
-iv. Run jybot --version in command prompt, if successful, the following will be displayed:
+
+  iv. Run jybot --version in command prompt, if successful, the following will be displayed:
     Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
 
 4. Install SikuliX v1.1.0 setup
 
-Link: https://launchpad.net/sikuli/sikulix/1.1.0
+  Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
-i. Download sikulixsetup-1.1.0.jar (md5) in a local directory
+  i. Download sikulixsetup-1.1.0.jar (md5) in a local directory
     * I would suggest C:\SikuliX1.1.0
 
-ii. Double-click the sikulixsetup-1.1.0.jar file
+  ii. Double-click the sikulixsetup-1.1.0.jar file
 
-iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack2 and the tesseract (install the IDE, option 1 later but backup the sikulixapi.jar first)
+  iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack2 and the tesseract (install the IDE, option 1 later but backup the sikulixapi.jar first)
 
     *if sucessful, the sikulixapi.jar will be created (must be 24-23MB in size otherwise, there may be some missing files if a smaller jar file is created)
 
 5. Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables
 
-i. Right-click > My Computer > Properties > Advanced system settings > Environment Variables
+  i. Right-click > My Computer > Properties > Advanced system settings > Environment Variables
 
-ii. Click New button. In Variable Name field, type CLASSPATH and in Variable Value, type C:\SikuliX1.1.0\sikulixapi.jar
+  ii. Click New button. In Variable Name field, type CLASSPATH and in Variable Value, type C:\SikuliX1.1.0\sikulixapi.jar
 
-iii. Do the same thing for JYTHONPATH
+  iii. Do the same thing for JYTHONPATH
 
 6. Install SikuliXRobotLibrary from source
 
-Link: https://github.com/jaredfin/SikuliXRobotLibrary
+  Link: https://github.com/jaredfin/SikuliXRobotLibrary
 
-i. Do these in command prompt:
+  i. Do these in command prompt:
     cd C:\
     git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
     cd SikuliXRobotLibrary
@@ -206,9 +206,9 @@ i. Do these in command prompt:
 
 7. Run the demo calculator test
 
-i. Do the following in command prompt:
+  i. Do the following in command prompt:
     cd C:\SikuliXRobotLibrary
     jybot -d LOGS -i Demotest demo\calc_test_suite
     *if successful, this should run the test
 
-Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
+  Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
