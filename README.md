@@ -143,7 +143,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
 
   Link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
-  i. Run java -version in command promt, java version should be displayed, otherwise, add C:\Program Files\Java\jre<version>\bin in Environment Variable
+  i. Run java -version in command prompt, java version should be displayed, otherwise, add C:\Program Files\Java\jre<version>\bin in Environment Variable
 
 2. Install Jython 2.7:
 
@@ -154,7 +154,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
   ii. Add 'C:\jython2.7.0\bin' in Environment variables
 
   iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed
-      Jython 2.7.0
+        Jython 2.7.0
 
 3. Install Robotframework from the source:
 
@@ -165,11 +165,13 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
   ii. cd to the extracted directory where 'setup.py is located
 
   iii. pen a command prompt and run: jython setup.py install
-    * jybot.bat will be created in C:\jython2.7.0\bin
-    * C:\jython2.7.0\Lib\site-packages\robotframework-2.9.2-py2.7.egg will be created
+
+      * jybot.bat will be created in C:\jython2.7.0\bin
+      * C:\jython2.7.0\Lib\site-packages\robotframework-2.9.2-py2.7.egg will be created
 
   iv. Run jybot --version in command prompt, if successful, the following will be displayed:
-    Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
+
+      Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
 
 4. Install SikuliX v1.1.0 setup
 
@@ -197,18 +199,19 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
   Link: https://github.com/jaredfin/SikuliXRobotLibrary
 
   i. Do these in command prompt:
-    cd C:\
-    git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
-    cd SikuliXRobotLibrary
-    jython setup.py install
+
+      cd C:\
+      git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
+      cd SikuliXRobotLibrary
+      jython setup.py install
 
     * see https://github.com/jaredfin/SikuliXRobotLibrary for more installation instructions and troubleshooting
 
 7. Run the demo calculator test
 
   i. Do the following in command prompt:
-    cd C:\SikuliXRobotLibrary
-    jybot -d LOGS -i Demotest demo\calc_test_suite
-    *if successful, this should run the test
+      cd C:\SikuliXRobotLibrary
+      jybot -d LOGS -i Demotest demo\calc_test_suite
+      * if successful, this should run the test
 
   Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
