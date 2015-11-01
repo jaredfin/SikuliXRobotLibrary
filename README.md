@@ -6,16 +6,17 @@ TLDR
 Prerequisites: java 8, jython, robotframework, jybot, sikulixapi.jar with tesseract
 
 Setup CLASSPATH AND JYTHONPATH in environment variables:
-CLASSPATH = <path to sikulixapi.jar>
-JYTHONPATH = <path to sikulixapi.jar>\Lib
+
+      CLASSPATH = <path to sikulixapi.jar>
+      JYTHONPATH = <path to sikulixapi.jar>\Lib
 
 Install the SikuliXRobotLibrary:
-$ git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
-$ cd SikuliXRobotLibrary
-$ jython setup.py install
+      git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
+      cd SikuliXRobotLibrary
+      jython setup.py install
 
 Run The Demo:
-$ jybot -d LOGS -i Demotest demo\calc_test_suite
+      jybot -d LOGS -i Demotest demo\calc_test_suite
 
 Introduction
 ------------
