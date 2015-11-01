@@ -154,6 +154,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
   ii. Add 'C:\jython2.7.0\bin' in Environment variables
 
   iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed
+  
         Jython 2.7.0
 
 3. Install Robotframework from the source:
@@ -164,7 +165,9 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   ii. cd to the extracted directory where `setup.py` is located
 
-  iii. pen a command prompt and run: jython setup.py install
+  iii. Open a command prompt and run: 
+
+      jython setup.py install
 
       * jybot.bat will be created in C:\jython2.7.0\bin
       * C:\jython2.7.0\Lib\site-packages\robotframework-2.9.2-py2.7.egg will be created
