@@ -219,7 +219,6 @@ ELI5 Installation Instructions (Windows 7 or 8)
       jybot -d LOGS -i DemoTest demo\calc_test_suite
 
       * if successful, this should run the following test:
-      * note that Sikulix's OCR is still not that perfect in recognizing texts yet, the demo test case only includes more than 1 digit on expected results, single digits and repeating digits like 4444 seems to not return any texts when read by the OCR. you may play with the test cases by assigning different values in the arguments
 
       ---------------------------------------------------------------------
       * Main Test file: CalculatorTest.robot
@@ -255,13 +254,13 @@ ELI5 Installation Instructions (Windows 7 or 8)
       *** Settings ***
       Library           SikuliXRobotLibrary
 
-
-  Note: SikuliX takes over the mouse pointer and keyboard control, you may opt to setup the scripts in another node in Jenkins then run it remotely.
-
 ![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png)
 
 Additional Notes: 
 -----------------
+Sikulix's OCR is still not that perfect in recognizing texts yet, the demo test case only includes more than 1 digit on expected results, single digits and repeating digits like 4444 seems to not return any texts when read by the OCR. you may play with the test cases by assigning different values in the arguments of the test cases
+
+SikuliX takes over the mouse pointer and keyboard control, you may opt to setup the scripts in another node in Jenkins then run it remotely.
 
 For capturing screenshots, I use IrfanView: http://www.irfanview.com/
 
