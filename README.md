@@ -173,7 +173,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
 
-4. Install SikuliX v1.1.0 setup.
+4. Install SikuliX v1.1.0.
 
   Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
@@ -183,9 +183,9 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   ii. Double-click the sikulixsetup-1.1.0.jar file
 
-  iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack2 and the tesseract (install the IDE option 1 later, but backup the sikulixapi.jar first)
+  iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack 2 and the tesseract (you may opt to install the IDE option 1 later, but backup the sikulixapi.jar first)
 
-      * if sucessful, the sikulixapi.jar will be created (must be 24-23MB in size otherwise, there may be some missing files if a smaller jar file is created)
+      * if sucessful, the sikulixapi.jar will be created (must be 24-25MB in size otherwise, there may be some missing files if a smaller jar file is created)
 
 5. Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables.
 
@@ -214,7 +214,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       cd C:\SikuliXRobotLibrary
       jybot -d LOGS -i Demotest demo\calc_test_suite
-      
+
       * if successful, this should run the test
 
   Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
