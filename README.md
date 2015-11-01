@@ -166,7 +166,7 @@ iii. pen a command prompt and run: jython setup.py install
 iv. Run jybot --version in command prompt, if successful, the following will be displayed:
     Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
 
-4. Install SikuliX v1.0.0 setup
+4. Install SikuliX v1.1.0 setup
 
 Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
