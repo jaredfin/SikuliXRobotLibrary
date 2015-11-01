@@ -88,12 +88,12 @@ Once you have installed SikuliXRobotLibrary it is a good idea to verify the inst
 
      C:\> jython
 
-and then at the Python prompt type::
+and then at the Jython prompt type::
 
     >> import SikuliXRobotLibrary
     >>
 
-If the python command line interpretor returns with another prompt ('>>' as shown above) then your installation was successful.
+If the jython command line interpretor returns with another prompt ('>>' as shown above) then your installation was successful.
 
 Troubleshooting Installation
 ----------------------------
@@ -178,7 +178,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
   Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
   i. Download sikulixsetup-1.1.0.jar (md5) in a local directory
-  
+
     * I would suggest C:\SikuliX1.1.0
 
   ii. Double-click the sikulixsetup-1.1.0.jar file

@@ -38,12 +38,12 @@ Once you have installed SikuliXRobotLibrary it is a good idea to verify the inst
 
      C:\> jython
 
-and then at the Python prompt type::
+and then at the Jython prompt type::
 
     >> import SikuliXRobotLibrary
     >>
 
-If the python command line interpretor returns with another prompt ('>>' as shown above) then your installation was successful.
+If the jython command line interpretor returns with another prompt ('>>' as shown above) then your installation was successful.
 
 Troubleshooting Installation
 ----------------------------
