@@ -136,7 +136,7 @@ Robot Framework User Guide
 http://code.google.com/p/robotframework/wiki/UserGuide
 
 
-ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
+ELI5 Installation Instructions (Windows 7 or 8)
 ------------------------------
 
 1. Install Java 8. 
@@ -179,13 +179,13 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
 
   i. Download sikulixsetup-1.1.0.jar (md5) in a local directory
 
-    * I would suggest C:\SikuliX1.1.0
+    * C:\SikuliX1.1.0
 
   ii. Double-click the sikulixsetup-1.1.0.jar file
 
-  iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack2 and the tesseract (install the IDE, option 1 later but backup the sikulixapi.jar first)
+  iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack2 and the tesseract (install the IDE option 1 later, but backup the sikulixapi.jar first)
 
-    *if sucessful, the sikulixapi.jar will be created (must be 24-23MB in size otherwise, there may be some missing files if a smaller jar file is created)
+      * if sucessful, the sikulixapi.jar will be created (must be 24-23MB in size otherwise, there may be some missing files if a smaller jar file is created)
 
 5. Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables
 
@@ -206,7 +206,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
       cd SikuliXRobotLibrary
       jython setup.py install
 
-    * see https://github.com/jaredfin/SikuliXRobotLibrary for more installation instructions and troubleshooting
+      * see https://github.com/jaredfin/SikuliXRobotLibrary for more installation instructions and troubleshooting
 
 7. Run the demo calculator test
 
