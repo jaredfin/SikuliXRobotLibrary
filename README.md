@@ -135,8 +135,9 @@ Robot Framework User Guide
 ---------------------- 
 http://code.google.com/p/robotframework/wiki/UserGuide
 
-------------------------------
+
 ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
+------------------------------
 
 1. Install Java 8. 
 Link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -194,5 +195,5 @@ i. Do the following in command prompt:
     cd C:\SikuliXRobotLibrary
     jybot -d LOGS -i Demotest demo\calc_test_suite
     *if successful, this should run the test
-    
+
 Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
