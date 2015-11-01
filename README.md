@@ -154,7 +154,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
   ii. Add 'C:\jython2.7.0\bin' in Environment variables
 
   iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed
-  
+
         Jython 2.7.0
 
 3. Install Robotframework from the source:
@@ -250,6 +250,11 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
 ![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png)
 
+Additional Notes: 
+
+For capturing screenshots, I use IrfanView: http://www.irfanview.com/
+
+For calculating the offset values of x, y, w and h, I am using the pixel-ruler online tool: http://www.rapidtables.com/web/tools/pixel-ruler.htm
 
 --------------------------------------
 
