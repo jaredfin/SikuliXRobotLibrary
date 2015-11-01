@@ -1,4 +1,5 @@
 *** Settings ***
+Library           SikuliXRobotLibrary
 Library           String
 
 *** Keywords ***
