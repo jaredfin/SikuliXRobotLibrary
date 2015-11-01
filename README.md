@@ -178,6 +178,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
   Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
   i. Download sikulixsetup-1.1.0.jar (md5) in a local directory
+  
     * I would suggest C:\SikuliX1.1.0
 
   ii. Double-click the sikulixsetup-1.1.0.jar file
@@ -210,6 +211,7 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
 7. Run the demo calculator test
 
   i. Do the following in command prompt:
+
       cd C:\SikuliXRobotLibrary
       jybot -d LOGS -i Demotest demo\calc_test_suite
       * if successful, this should run the test
