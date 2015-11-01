@@ -127,5 +127,10 @@ E.g.::
     Note: C:\demo\logs directory must be created before running the script
 	
 
-.. _Keyword Documentation: https://pybot.wordpress.com/2015/10/31/sikulixrobotlibrary-keyword-documentation/
-.. _Robot Framework User Guide: http://code.google.com/p/robotframework/wiki/UserGuide
+Keyword Documentation
+---------------------- 
+https://pybot.wordpress.com/2015/10/31/sikulixrobotlibrary-keyword-documentation/
+
+Robot Framework User Guide
+---------------------- 
+http://code.google.com/p/robotframework/wiki/UserGuide
