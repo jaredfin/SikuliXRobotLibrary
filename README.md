@@ -243,4 +243,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
           When User Clicks "Equals" Button
           Then Actual Result Should Be Equal To "${expected_result}"
 
-  Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
+  Note: SikuliX takes over the mouse pointer, make sure to not use the test pc while running the tests
+
+![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/tree/master/doc/sample_log.png)
+
