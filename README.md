@@ -245,5 +245,9 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   Note: SikuliX takes over the mouse pointer, make sure to not use the test pc while running the tests
 
-![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/tree/master/doc/sample_log.png)
+![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png)
 
+
+--------------------------------------
+
+Created by Francis John P. Agunday
