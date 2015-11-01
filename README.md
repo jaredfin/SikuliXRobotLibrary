@@ -251,6 +251,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 ![RobotFramework Results Log](https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png)
 
 Additional Notes: 
+-----------------
 
 For capturing screenshots, I use IrfanView: http://www.irfanview.com/
 
