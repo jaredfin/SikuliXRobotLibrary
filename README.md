@@ -162,7 +162,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   i. Download and extract the rf source (robotframework-2.9.2.tar.gz (md5)) to a local directory
 
-  ii. cd to the extracted directory where 'setup.py is located
+  ii. cd to the extracted directory where `setup.py` is located
 
   iii. pen a command prompt and run: jython setup.py install
 
@@ -199,7 +199,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   Link: https://github.com/jaredfin/SikuliXRobotLibrary
 
-  i. Do these in command prompt:
+  i. Do the following in command prompt:
 
       cd C:\
       git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
@@ -214,6 +214,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       cd C:\SikuliXRobotLibrary
       jybot -d LOGS -i Demotest demo\calc_test_suite
+      
       * if successful, this should run the test
 
   Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
