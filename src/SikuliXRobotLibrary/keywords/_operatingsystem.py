@@ -8,7 +8,7 @@ class _OperatingSystemKeywords(KeywordGroup):
 
     # Public
 
-    def get_env_OS(self):
+    def get_env_OS_type(self):
         """Returns the Operating System ``type`` of test pc.
         Example of Operating System `types`: WINDOWS, MAC, LINUX
         """
@@ -27,7 +27,7 @@ class _OperatingSystemKeywords(KeywordGroup):
         return str(self.env_OS) + " " + str(self.env_OS_version)
 
     # Check if OS version is correct based on the argument env_OS
-    def confirm_env_OS(self, env_OS):
+    def confirm_env_OS_type(self, env_OS):
         """Returns `True` or `False` based on the `env_OS` version where the script is executed.
         """
         assert env_OS is not None and len(env_OS) > 0
