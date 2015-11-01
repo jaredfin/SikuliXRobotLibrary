@@ -123,8 +123,8 @@ using SikuliXRobotLibrary. To run the demo, run::
 
 E.g.::
 
-    jybot -d C:\SikuliXRobotLibrary\demo\logs -i CalculatorTest C:\SikuliXRobotLibrary\demo\calc_test_suite
-    Note: C:\demo\logs directory must be created before running the script
+    jybot -d C:\SikuliXRobotLibrary\demo\logs -i Demotest C:\SikuliXRobotLibrary\demo\calc_test_suite
+    Note: C:\SikuliXRobotLibrary\demo\logs will be automatically created upon running the script
 	
 
 Keyword Documentation
