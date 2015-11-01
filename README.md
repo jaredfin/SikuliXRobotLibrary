@@ -140,7 +140,9 @@ ELI5 Installation Instructions (Wiindows 7 or 8 Installation)
 ------------------------------
 
 1. Install Java 8. 
+
 Link: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
 i. Run java -version in command promt, java version should be displayed, otherwise, add C:\Program Files\Java\jre<version>\bin in Environment Variable
 
 2. Install Jython 2.7:
