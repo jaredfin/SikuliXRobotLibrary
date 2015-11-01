@@ -36,7 +36,7 @@ class _ApplicationKeywords(KeywordGroup):
         except FinFailed, err:
             raise AssertionError("Application '%s' not found." % (app_name))
 
-    def check_and_open_application(self, path, app_name):
+    def check_and_open_application(self, app_name, path):
         """Checks if application is running and sets the focus to the application, 
         otherwise, opens application matching the given ``app_name`` and ``path``.
 

@@ -36,7 +36,7 @@ Set Default Pattern Library Directory
     Set Image Library    ${IMAGE_LIBRARY}
 
 Open "${p_app_name}" Application
-    Check and Open Application    ${${p_app_name}_EXECUTABLE}    ${${p_app_name}_APP_NAME}
+    Check and Open Application    ${${p_app_name}_APP_NAME}    ${${p_app_name}_EXECUTABLE}
     Wait Until Keyword Succeeds    ${TIMEOUT}    ${RETRY_INTERVAL}
     ...    Window "Calculator" Should Be Open
     #Set Focus To "Calculator" Window
