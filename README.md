@@ -173,7 +173,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
 
-4. Install SikuliX v1.1.0 setup
+4. Install SikuliX v1.1.0 setup.
 
   Link: https://launchpad.net/sikuli/sikulix/1.1.0
 
@@ -187,7 +187,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       * if sucessful, the sikulixapi.jar will be created (must be 24-23MB in size otherwise, there may be some missing files if a smaller jar file is created)
 
-5. Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables
+5. Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables.
 
   i. Right-click > My Computer > Properties > Advanced system settings > Environment Variables
 
@@ -195,7 +195,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
   iii. Do the same thing for JYTHONPATH
 
-6. Install SikuliXRobotLibrary from source
+6. Install SikuliXRobotLibrary from source.
 
   Link: https://github.com/jaredfin/SikuliXRobotLibrary
 
@@ -208,7 +208,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
       * see https://github.com/jaredfin/SikuliXRobotLibrary for more installation instructions and troubleshooting
 
-7. Run the demo calculator test
+7. Run the demo calculator test suite.
 
   i. Do the following in command prompt:
 
