@@ -213,9 +213,9 @@ ELI5 Installation Instructions (Windows 7 or 8)
   i. Do the following in command prompt:
 
       cd C:\SikuliXRobotLibrary
-      jybot -d LOGS -i Demotest demo\calc_test_suite
+      jybot -d LOGS -i DemoTest demo\calc_test_suite
 
-      * if successful, this should run the test
+      * if successful, this should run the following test:
 
       *** Settings ***
       Documentation     Calculator test suite for the common operations. Does not use patterns as parameters in the keywords but uses offsets of regions instead
