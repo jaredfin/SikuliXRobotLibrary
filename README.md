@@ -210,6 +210,13 @@ ELI5 Installation Instructions (Windows 7 or 8)
 
 7. Run the demo calculator test suite.
 
+  i. Do the following in command prompt:
+
+      cd C:\SikuliXRobotLibrary
+      jybot -d LOGS -i Demotest demo\calc_test_suite
+
+      * if successful, this should run the test
+
       *** Settings ***
       Documentation     Calculator test suite for the common operations. Does not use patterns as parameters in the keywords but uses offsets of regions instead
       Library           SikuliXRobotLibrary
@@ -223,7 +230,7 @@ ELI5 Installation Instructions (Windows 7 or 8)
       12 + 100 = 112         12     Plus         100       112
       9 + 9 = 18              9     Plus           9        18
       112 - 100 = 12        112     Minus        100        12
-      119 - 9 = 110         119     Minus          9       110    # You may set a test case to fail in order to see how the reporting works.
+      119 - 9 = 110         119     Minus          9       110
       100 / 2 = 50          100     Divide         2        50
       1 / 4 = 0.25            1     Divide         4      0.25
       10 * 100 = 1000        10     Times        100      1000
@@ -235,12 +242,5 @@ ELI5 Installation Instructions (Windows 7 or 8)
           Given User Calculates "${num1}" "${operation}" "${num2}"
           When User Clicks "Equals" Button
           Then Actual Result Should Be Equal To "${expected_result}"
-
-  i. Do the following in command prompt:
-
-      cd C:\SikuliXRobotLibrary
-      jybot -d LOGS -i Demotest demo\calc_test_suite
-
-      * if successful, this should run the test
 
   Note: sikuli takes over the mouse pointer, make sure to not use the test pc while running the tests
