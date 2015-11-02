@@ -53,7 +53,7 @@ class _KeyboardActionsKeywords(KeywordGroup):
         Example:
         | Type String | A quick cat fox jumps over the mat. | # Types the specified string |
         """
-        string_param = self._clean_string(string_param)
+        string_param = string_param.strip()
         type(string_param)
 
     def paste_string(self, string_param):
@@ -64,7 +64,7 @@ class _KeyboardActionsKeywords(KeywordGroup):
         Example:
         | Paste String | A quick cat fox jumps over the mat. | # Types the specified string |
         """
-        string_param = self._clean_string(string_param)
+        string_param = string_param.strip()
         paste(string_param)
 
     # Private
