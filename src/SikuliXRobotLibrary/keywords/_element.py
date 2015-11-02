@@ -178,7 +178,7 @@ class _ElementKeywords(KeywordGroup):
         | Highlight Pattern | pattern.png = 0.90 | 2   | This is a sample text. | # Type a text in element identified by pattern.png |
         """
         self._info("Highlighting element '%s' for '%s' second(s)." % (pattern, highlight_duration))
-        self._pattern_find(pattern, None, None).highlight(highlight_duration)
+        self._pattern_find(pattern, None, None).highlight(float(highlight_duration))
 
     def hover_at_pattern(self, pattern):
         """Hover mouse pointer at center of element identified by ``pattern``.
@@ -202,7 +202,7 @@ class _ElementKeywords(KeywordGroup):
         """Move mouse cursor coordinates at ``x/y`` coordinates of the `screen`.
         """
         self._info("Moving mouse at coordinates '%s', '%s'." % (xoffset, yoffset))
-        mouseMove(xoffset, yoffset)
+        mouseMove(int(xoffset), int(yoffset))
 
     def mouse_button_down(self, mouse_button):
         """Press the ``left`` mouse button `down`. 
@@ -470,7 +470,7 @@ class _ElementKeywords(KeywordGroup):
         """
 
         self._info("Highlighting '%s'nth pattern '%s' in active app for '%s' second(s)." % (pattern_index, pattern, highlight_duration))
-        self._get_nth_pattern(pattern, pattern_index).highlight(highlight_duration)
+        self._get_nth_pattern(pattern, pattern_index).highlight(float(highlight_duration))
 
     def drag_nth_pattern_in_active_app(self, pattern, pattern_index):
         """Drag the nth element identified by ``pattern``.
