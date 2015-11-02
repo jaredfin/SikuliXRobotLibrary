@@ -27,15 +27,15 @@ class _ElementKeywords(KeywordGroup):
         `Set Search Region To Application`, `Set New Search Region In Target Screen` or 
         `Set New Search Region In Application`.
 
-        See also `Double Click Region`, `Right Click Region`, `Get Text In Search Region`
+        See also `Double Click Region`, `Right Click Region`, `Get Text In Search Region`, `Hover At Region`
         and `Highlight Region`.
 
         Example:
         | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app.            |
         | Click Region                        |                   | # Clicks the center of the specified ROI or search region. |
         """
-        self._info("Clicking specified ROI or search region.")
-        click()
+        self._info("Clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
+        click(getLastMatch())
 
     def double_click_region(self):
         """Double-clicks the center x,y coordinate of a specified ROI or search region.
@@ -45,15 +45,15 @@ class _ElementKeywords(KeywordGroup):
         `Set Search Region To Application`, `Set New Search Region In Target Screen` or 
         `Set New Search Region In Application`.
 
-        See also `Click Region`, `Right Click Region`, `Get Text In Search Region`
+        See also `Click Region`, `Right Click Region`, `Get Text In Search Region`, `Hover At Region`
         and `Highlight Region`.
 
         Example:
         | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app.                   |
         | Double Click Region                 |                   | # Double-clicks the center of the specified ROI or search region. |
         """
-        self._info("Double-clicking specified ROI or search region.")
-        doubleClick()
+        self._info("Double-clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
+        doubleClick(getLastMatch())
 
     def right_click_region(self):
         """Right-clicks the center x,y coordinate of a specified ROI or search region.
@@ -63,15 +63,15 @@ class _ElementKeywords(KeywordGroup):
         `Set Search Region To Application`, `Set New Search Region In Target Screen` or 
         `Set New Search Region In Application`.
 
-        See also `Click Region`, `Double Click Region`, `Get Text In Search Region`
+        See also `Click Region`, `Double Click Region`, `Get Text In Search Region`, `Hover At Region`
         and `Highlight Region`.
 
         Example:
         | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app.                   |
         | Right Click Region                  |                   | # Right-clicks the center of the specified ROI or search region. |
         """
-        self._info("Right-clicking specified ROI or search region.")
-        rightClick()
+        self._info("Right-clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
+        rightClick(getLastMatch())
 
     def highlight_region(self, highlight_duration):
         """Highlights the specified ROI or search region for a specified ``highlight_duration`` in seconds.
@@ -81,7 +81,7 @@ class _ElementKeywords(KeywordGroup):
         `Set Search Region To Application`, `Set New Search Region In Target Screen` or 
         `Set New Search Region In Application`.
 
-        See also `Click Region`, `Double Click Region`, `Right Click Region` and `Get Text In Search Region`.
+        See also `Click Region`, `Double Click Region`, `Right Click Region`, `Hover At Region` and `Get Text In Search Region`.
 
         Example:
         | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app.                 |
@@ -105,8 +105,8 @@ class _ElementKeywords(KeywordGroup):
         | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app. |
         | Hover At Region                     |                   | # Hovers mouse pointer at the center of specified ROI or search region. |
         """
-        self._info("Clicking specified ROI or search region.")
-        hover()
+        self._info("Hovering at specified ROI or search region. Last match: '%s'" % getLastMatch())
+        hover(getLastMatch())
 
     def click_pattern(self, pattern):
         """Perform a mouse `click` on the click point using the `left` button.
