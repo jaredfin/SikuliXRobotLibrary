@@ -43,7 +43,9 @@ class _RegionKeywords(KeywordGroup):
         `Set New Search Region In Target Screen` and `Set New Search Region In Application`.
         """
         self._info("Setting the search region to the active application.")
-        setROI(*self.get_active_app_coordinates())
+        search_region = self.get_active_app_region()
+        self._info("Setting the search region to '%s'." % (search_region))
+        setROI(search_region)
 
     def set_search_region_to_application(self, app_name):
         """Sets the ROI or the search area to the application as specified in `app_name`.
@@ -55,8 +57,9 @@ class _RegionKeywords(KeywordGroup):
         See also `Set Search Region To Target Screen`, `Set New Search Region In Active App`,
         `Set New Search Region In Target Screen` and `Set New Search Region In Application`.
         """
-        self._info("Setting the search region to the application '%s'." % app_name)
-        setROI(App(app_name).window())
+        search_region = App(app_name).window()
+        self._info("Setting the search region: '%s' to the application: '%s'." % (app_name, search_region))
+        setROI(search_region)
 
     def set_new_search_region_in_active_app(self, offsets):
         """Sets new ROI or the search area to a specified ``offsets`` based on original coordinate values of active application in focus.
