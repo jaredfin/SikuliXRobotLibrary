@@ -385,7 +385,7 @@ class _ElementKeywords(KeywordGroup):
         self._pattern_find(pattern, None, None).type(text)
 
     def type_text_in_pattern_at_coordinates(self, pattern, text, xoffset, yoffset):
-        """Paste a `text` at `x/y` coordinates of the element identified by ``pattern``.
+        """Type a `text` at `x/y` coordinates of the element identified by ``pattern``.
 
         Example:
         | Type Text In Pattern | pattern.png = 0.90 | 30 | 30 | This is a sample text. | # Type a text in x/y coordinates of element identified by pattern.png |
