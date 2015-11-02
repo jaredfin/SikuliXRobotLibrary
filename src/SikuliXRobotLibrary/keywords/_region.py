@@ -71,10 +71,14 @@ class _RegionKeywords(KeywordGroup):
         self._info("Setting new search region to offsets '%s'." % offsets)
         (offsetx, offsety, offsetw, offseth) = self._parse_coordinate_offsets(offsets)
         active_app_region = self.get_active_app_region()
-        new_coordinates = (active_app_region.x + offsetx, 
-                           active_app_region.y + offsety,
-                           active_app_region.w + offsetw,
-                           active_app_region.h + offseth)
+        self._info("Active app region '%s'." % active_app_region)
+        new_x = active_app_region.x + offsetx
+        new_y = active_app_region.y + offsety
+        new_w = active_app_region.w + offsetw
+        new_h = active_app_region.h + offseth
+        new_coordinates = (new_x, new_y, new_w, new_h)
+        
+        self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
         setROI(*new_coordinates)
 
     def set_new_search_region_in_application(self, app_name, offsets):
@@ -90,10 +94,15 @@ class _RegionKeywords(KeywordGroup):
         self._info("Setting new search region to offsets '%s'." % offsets)
         (offsetx, offsety, offsetw, offseth) = self._parse_coordinate_offsets(offsets)
         application_region = self.get_application_region(app_name)
-        new_coordinates = (application_region.x + offsetx, 
-                           application_region.y + offsety,
-                           application_region.w + offsetw,
-                           application_region.h + offseth)
+        self._info("Application region '%s'." % application_region)
+        new_x = application_region.x + offsetx
+        new_y = application_region.y + offsety
+        new_w = application_region.w + offsetw
+        new_h = application_region.h + offseth
+        new_coordinates = (new_x, new_y, new_w, new_h)
+        
+        self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
+
         setROI(*new_coordinates)
 
     def set_new_search_region_in_target_screen(self, offsets, target_screen):
@@ -110,10 +119,15 @@ class _RegionKeywords(KeywordGroup):
         self.target_screen = target_screen
         (offsetx, offsety, offsetw, offseth) = self._parse_coordinate_offsets(offsets)
         screen_number = self._parse_target_screen(self.target_screen)
-        new_coordinates = (Sceen(screen_number).x + offsetx, 
-                           Sceen(screen_number).y + offsety,
-                           Sceen(screen_number).w + offsetw,
-                           Sceen(screen_number).h + offseth)
+        self._info("'%s' region '%s'." % (target_screen, screen_number))
+
+        new_x = Sceen(screen_number).x + offsetx
+        new_y = Sceen(screen_number).y + offsety
+        new_w = Sceen(screen_number).w + offsetw
+        new_h = Sceen(screen_number).h + offseth
+        new_coordinates = (new_x, new_y, new_w, new_h)
+        
+        self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
         setROI(*new_coordinates)
 
     def get_active_screen_coordinates(self, target_screen):
