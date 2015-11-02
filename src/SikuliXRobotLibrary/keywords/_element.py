@@ -35,7 +35,7 @@ class _ElementKeywords(KeywordGroup):
         | Click Region                        |                   | # Clicks the center of the specified ROI or search region. |
         """
         self._info("Clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
-        click(getLastMatch())
+        click()
 
     def double_click_region(self):
         """Double-clicks the center x,y coordinate of a specified ROI or search region.
@@ -53,7 +53,7 @@ class _ElementKeywords(KeywordGroup):
         | Double Click Region                 |                   | # Double-clicks the center of the specified ROI or search region. |
         """
         self._info("Double-clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
-        doubleClick(getLastMatch())
+        doubleClick()
 
     def right_click_region(self):
         """Right-clicks the center x,y coordinate of a specified ROI or search region.
@@ -71,7 +71,7 @@ class _ElementKeywords(KeywordGroup):
         | Right Click Region                  |                   | # Right-clicks the center of the specified ROI or search region. |
         """
         self._info("Right-clicking specified ROI or search region. Last match: '%s'" % getLastMatch())
-        rightClick(getLastMatch())
+        rightClick()
 
     def highlight_region(self, highlight_duration):
         """Highlights the specified ROI or search region for a specified ``highlight_duration`` in seconds.
@@ -106,7 +106,7 @@ class _ElementKeywords(KeywordGroup):
         | Hover At Region                     |                   | # Hovers mouse pointer at the center of specified ROI or search region. |
         """
         self._info("Hovering at specified ROI or search region. Last match: '%s'" % getLastMatch())
-        hover(getLastMatch())
+        hover()
 
     def click_pattern(self, pattern):
         """Perform a mouse `click` on the click point using the `left` button.
