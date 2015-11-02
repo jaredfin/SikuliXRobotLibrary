@@ -160,11 +160,9 @@ class _RegionKeywords(KeywordGroup):
 
     def get_application_coordinates(self, app_name):
         """Returns the ``coordinates`` of the `application` in focus.
-        Keyword must be combined with `Set Application Focus`.
 
         Examples:
-        | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`      |
-        | Get Active App Coordinates |                |# Gets the coordinates of `My Awesome App` |
+        | Get Application Coordinates | My Awesome App |# Gets the coordinates of `My Awesome App` |
         """
         applicationWindow = App(app_name).window()
         coordinates = (applicationWindow.getX(), 
@@ -206,6 +204,40 @@ class _RegionKeywords(KeywordGroup):
         """Returns the ``region`` of the element identified by `pattern`.
         """
         return Region(*self.get_reference_pattern_coordinates(pattern))
+
+    def get_application_xywh_coordinate(self, app_name, coordinate):
+        """Returns the ``xy coordinate`` or the ``width`` or ``height`` of the `application` as specified in `app_name`.
+        """
+        self._info("Getting'%s' value for application '%s." % (coordinate, app_name))
+        assert coordinate is not None and len(coordinate) > 0
+        applicationWindow = App(app_name).window()
+        if (coordinate == x):
+            return applicationWindow.x
+        elif (coordinate == y):
+            return applicationWindow.y
+        elif (coordinate == w):
+            return applicationWindow.w
+        elif (coordinate == h):
+            return applicationWindow.h
+        else:
+            raise ValueError("Invalid value for coordinate type, input value is: '%s'" % (coordinate))
+
+    def get_active_app_xywh_coordinate(self, coordinate):
+        """Returns the ``xy coordinate`` or the ``width`` or ``height`` of the active application in focus.
+        """
+        self._info("Getting'%s' value for application '%s." % (coordinate, app_name))
+        assert coordinate is not None and len(coordinate) > 0
+        activeWindow = App.focusedWindow()
+        if (coordinate == x):
+            return activeWindow.x
+        elif (coordinate == y):
+            return activeWindow.y
+        elif (coordinate == w):
+            return activeWindow.w
+        elif (coordinate == h):
+            return activeWindow.h
+        else:
+            raise ValueError("Invalid value for coordinate type, input value is: '%s'" % (coordinate))
 
     # Private
     """***************************** Internal Methods ************************************"""
