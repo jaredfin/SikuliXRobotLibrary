@@ -88,6 +88,14 @@ class _ScreenshotKeywords(KeywordGroup):
         Example 3:
         | Capture Screenshot | activeapp | ${OTHER_DIR}${/}sc-{index:06}.png |
         | File Should Exist | ${OTHER_DIR}${/}sc-000001.png |
+
+        Example 4:
+        | Capture Screenshot | activeapp   | # Captures the active application or the application in focus. |
+        | Capture Screenshot | lastROI     | # Captures the specified search region.                        |
+        | Capture Screenshot | Screen0     | # Captures Primary screen 1.                                   |
+        | Capture Screenshot | Screen1     | # Captures Screen 1.                                           |
+        | Capture Screenshot | pattern.png | # Captures the matching pattern                                |
+
         """
         path, link = self._get_screenshot_paths(filename)
         self._create_directory(path)
@@ -103,6 +111,8 @@ class _ScreenshotKeywords(KeywordGroup):
         target = target.lower()
         if (target == "activeapp"):
             target = self.get_active_app_coordinates()
+        elif (target == "lastroi"):
+            target = self.get_last_matching_coordinates()
         else:
             if(target.find('screen') != -1):
                 target = self.get_active_screen_coordinates(target)

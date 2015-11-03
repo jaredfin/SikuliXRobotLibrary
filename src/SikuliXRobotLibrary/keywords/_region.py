@@ -31,6 +31,7 @@ class _RegionKeywords(KeywordGroup):
         self.target_screen = target_screen
         screen_number = self._parse_target_screen(self.target_screen)
         setROI(Region(Screen(screen_number)))
+        #setRect(Region(Screen(screen_number)))
 
     def set_search_region_to_active_app(self):
         """Sets the ROI or the search area to the application in focus.
@@ -46,6 +47,7 @@ class _RegionKeywords(KeywordGroup):
         search_region = self.get_active_app_region()
         self._info("Setting the search region to '%s'." % (search_region))
         setROI(search_region)
+        #setRect(search_region)
 
     def set_search_region_to_application(self, app_name):
         """Sets the ROI or the search area to the application as specified in `app_name`.
@@ -60,6 +62,7 @@ class _RegionKeywords(KeywordGroup):
         search_region = App(app_name).window()
         self._info("Setting the search region: '%s' to the application: '%s'." % (app_name, search_region))
         setROI(search_region)
+        #setRect(search_region)
 
     def set_new_search_region_in_active_app(self, offsets):
         """Sets new ROI or the search area to a specified ``offsets`` based on original coordinate values of active application in focus.
@@ -83,6 +86,7 @@ class _RegionKeywords(KeywordGroup):
         
         self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
         setROI(*new_coordinates)
+        #setRect(*new_coordinates)
 
     def set_new_search_region_in_application(self, app_name, offsets):
         """Sets new ROI or the search area to a specified ``offsets`` based on original coordinate values of application as specified in `app_name`.
@@ -107,6 +111,7 @@ class _RegionKeywords(KeywordGroup):
         self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
 
         setROI(*new_coordinates)
+        #setRect(*new_coordinates)
 
     def set_new_search_region_in_target_screen(self, offsets, target_screen):
         """Sets new ROI or new search area to a specified ``offsets`` based on original coordinate values of `target screen`.
@@ -132,6 +137,7 @@ class _RegionKeywords(KeywordGroup):
         
         self._info("New coordinates: x:'%s' y:'%s w:'%s h:'%s." % new_coordinates)
         setROI(*new_coordinates)
+        #setRect(*new_coordinates)
 
     def get_active_screen_coordinates(self, target_screen):
         """Returns the ``coordinates`` of the screen as specified in `target_screen`.
@@ -151,7 +157,7 @@ class _RegionKeywords(KeywordGroup):
         | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`      |
         | Get Active App Coordinates |                |# Gets the coordinates of `My Awesome App` |
         """
-        activeWindow = App.focusedWindow();
+        activeWindow = App.focusedWindow()
         coordinates = (activeWindow.getX(), 
                        activeWindow.getY(), 
                        activeWindow.getW(), 
@@ -162,7 +168,8 @@ class _RegionKeywords(KeywordGroup):
         """Returns the ``coordinates`` of the `application` in focus.
 
         Examples:
-        | Get Application Coordinates | My Awesome App |# Gets the coordinates of `My Awesome App` |
+        | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`      |
+        | Get Active App Coordinates |                |# Gets the coordinates of `My Awesome App` |
         """
         applicationWindow = App(app_name).window()
         coordinates = (applicationWindow.getX(), 
@@ -170,40 +177,6 @@ class _RegionKeywords(KeywordGroup):
                        applicationWindow.getW(), 
                        applicationWindow.getH())
         return coordinates
-
-    def get_reference_pattern_coordinates(self, pattern):
-        """Returns the ``coordinates`` of the element identified by ``pattern``.
-
-        Example:
-        | Get Reference Pattern Coordinates | pattern.png = 0.90 | # Gets the coordinates of pattern.png |
-        """
-        try:
-            matched_pattern = find(self._pattern_finder._find_pattern(pattern))
-            coordinates = (matched_pattern.getX(), matched_pattern.getY(), matched_pattern.getW(), matched_pattern.getH())
-            return coordinates
-        except FindFailed, err:
-            raise AssertionError("Unable to find matching pattern '%s'." % (pattern))
-
-    def get_application_region(self, app_name):
-        """Returns the ``region`` of the application as specified in `app_name`.
-        """
-        return Region(*self.get_application_coordinates(app_name))
-
-
-    def get_active_screen_region(self):
-        """Returns the ``region`` of the active screen.
-        """
-        return Region(*self.get_active_screen_coordinates())
-
-    def get_active_app_region(self):
-        """Returns the ``region`` of the `application` in focus.
-        """
-        return Region(*self.get_active_app_coordinates())
-
-    def get_reference_pattern_region(self, pattern):
-        """Returns the ``region`` of the element identified by `pattern`.
-        """
-        return Region(*self.get_reference_pattern_coordinates(pattern))
 
     def get_application_xywh_coordinate(self, app_name, coordinate):
         """Returns the ``xy coordinate`` or the ``width`` or ``height`` of the `application` as specified in `app_name`.
@@ -239,6 +212,51 @@ class _RegionKeywords(KeywordGroup):
         else:
             raise ValueError("Invalid value for coordinate type, input value is: '%s'" % (coordinate))
 
+    def get_reference_pattern_coordinates(self, pattern):
+        """Returns the ``coordinates`` of the element identified by ``pattern``.
+
+        Example:
+        | Get Reference Pattern Coordinates | pattern.png = 0.90 | # Gets the coordinates of pattern.png |
+        """
+        try:
+            matched_pattern = find(self._pattern_finder._find_pattern(pattern))
+            coordinates = (matched_pattern.getX(), matched_pattern.getY(), matched_pattern.getW(), matched_pattern.getH())
+            return coordinates
+        except FindFailed, err:
+            raise AssertionError("Unable to find matching pattern '%s'." % (pattern))
+
+    def get_application_region(self, app_name):
+        """Returns the ``region`` of the application as specified in `app_name`.
+        """
+        return Region(*self.get_application_coordinates(app_name))
+
+
+    def get_active_screen_region(self):
+        """Returns the ``region`` of the active screen.
+        """
+        return Region(*self.get_active_screen_coordinates())
+
+    def get_active_app_region(self):
+        """Returns the ``region`` of the `application` in focus.
+        """
+        return Region(*self.get_active_app_coordinates())
+
+    def get_reference_pattern_region(self, pattern):
+        """Returns the ``region`` of the element identified by `pattern`.
+        """
+        return Region(*self.get_reference_pattern_coordinates(pattern))
+
+    def get_last_matching_coordinates(self):
+        """Returns the ``coordinates`` of the last region of interest or ROI.
+        """
+        coordinates_last_match = (getX(), getY(), getW(), getH())
+        return coordinates_last_match
+
+    def get_last_matching_region(self):
+        """Returns the ``region`` of the last region of interest or ROI.
+        """
+        return Region(*self.get_last_matching_coordinates())
+
     # Private
     """***************************** Internal Methods ************************************"""
 
@@ -263,4 +281,3 @@ class _RegionKeywords(KeywordGroup):
     def _get_target_screen(self):
         if self.target_screen is not None:
             return self.target_screen
-
