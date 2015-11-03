@@ -23,7 +23,7 @@ class _WaitingKeywords(KeywordGroup):
             self.sikulix_timeout = float(self._clean_string(timeout))
 
         self._info("Setting sikulix timeout to '%s' seconds." % (self.sikulix_timeout))
-        Settings.AutoWaitTimeout(self.sikulix_timeout)
+        Settings.AutoWaitTimeout = self.sikulix_timeout
 
     def set_sikulix_scanrate(self, scanrate):
         """Sets the ``sikulix scanrate`` value.
@@ -34,7 +34,7 @@ class _WaitingKeywords(KeywordGroup):
             self.sikulix_scanrate = float(self._clean_string(scanrate))
 
         self._info("Setting sikulix scanrate to '%s' seconds." % (self.sikulix_scanrate))
-        Settings.AutoWaitTimeout(self.sikulix_scanrate)
+        Settings.WaitScanRate = self.sikulix_scanrate
 
     def wait_in_seconds(self, timeout):
         """Waits until ``timeout`` expires.
