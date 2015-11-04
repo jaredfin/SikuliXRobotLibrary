@@ -76,7 +76,7 @@ class _ApplicationKeywords(KeywordGroup):
         if os.path.exists(application_path):
             App.open(application_path)
         else:
-            raise AssertionError("Application path '%s' not found." % (path))
+            raise AssertionError("Application path '%s' not found." % (application_path))
 
     def application_is_running(self, app_name):
         """Returns `True` if application as specified in `app_name` is running, else, returns `False`.
