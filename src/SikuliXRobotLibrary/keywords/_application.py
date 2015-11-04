@@ -9,6 +9,13 @@ class _ApplicationKeywords(KeywordGroup):
     
     # Public
     
+    class _ApplicationKeywords(KeywordGroup):
+    def __init__(self):
+        self.application_name = None
+        self.application_path = None
+    
+    # Public
+    
     def set_application_focus(self, app_name):
         """Sets focus to the open ``application`` matching the given ``app_name``.
         
@@ -18,7 +25,7 @@ class _ApplicationKeywords(KeywordGroup):
         self._info("Setting focus at application '%s'." % app_name)
         self._set_application_name(app_name)
         try:
-            App.focus(self.application_name)
+            App(self.application_name).focus()
         except FinFailed, err:
             raise AssertionError("Application '%s' not found." % (app_name))
 
@@ -52,9 +59,9 @@ class _ApplicationKeywords(KeywordGroup):
             self._set_application_name(app_name)
 
             if not App(self.application_name).isRunning():
-                App.open(self.application_path)
+                App(self.application_path).open()
             else:
-                App.focus(app_name)
+                App(app_name).focus()
         else:
             raise AssertionError("Application path '%s' not found." % (path))
 
@@ -66,7 +73,7 @@ class _ApplicationKeywords(KeywordGroup):
         self._info("Closing application '%s'." % app_name)
         self._set_application_name(app_name)
         if App(self.application_name).isRunning():
-            App.close(self.application_name)
+            App(self.application_name).close()
 
     def open_application(self, application_path):
         """opens the application matching the given ``application_path``.
@@ -74,7 +81,7 @@ class _ApplicationKeywords(KeywordGroup):
         See also `Check And Open Application`, `Close Application` and `Application Is Running`
         """
         if os.path.exists(application_path):
-            App.open(application_path)
+            App(application_path).open()
         else:
             raise AssertionError("Application path '%s' not found." % (application_path))
 
