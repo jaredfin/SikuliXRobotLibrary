@@ -73,7 +73,7 @@ class _ApplicationKeywords(KeywordGroup):
 
         See also `Check And Open Application`, `Close Application` and `Application Is Running`
         """
-        if os.path.exists(path):
+        if os.path.exists(application_path):
             App.open(application_path)
         else:
             raise AssertionError("Application path '%s' not found." % (path))
