@@ -91,7 +91,7 @@ class _ApplicationKeywords(KeywordGroup):
         Example:
         | Run Command | control appwiz.cpl | # Opens the Windows Control Panel > Programs and Features window. |
         """
-        run(script)
+        run(command)
 
     def app_has_window(self, app_name):
         """Returns `True` if application's window or dialog as specified in `app_name` is open,
