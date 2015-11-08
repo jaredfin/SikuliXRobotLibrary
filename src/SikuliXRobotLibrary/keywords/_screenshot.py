@@ -104,7 +104,6 @@ class _ScreenshotKeywords(KeywordGroup):
         shutil.copy(img_src, path)
         self._html('%s </td></tr><tr><td colspan="3"><a href="%s">'
                    '<img src="%s"></a>' % (msg, link, link))
-        return path
 
     def _screenshot_targert_coordinates(self, target):
         assert target is not None and len(target) > 0
