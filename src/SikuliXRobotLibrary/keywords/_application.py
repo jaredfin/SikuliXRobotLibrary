@@ -25,8 +25,7 @@ class _ApplicationKeywords(KeywordGroup):
         self._info("Setting focus at application '%s'." % app_name)
         self._set_application_name(app_name)
         try:
-            App.focus(self.application_name)
-            App.focus(self.application_name)
+            App(self.application_name).focus()
         except FinFailed, err:
             raise AssertionError("Application '%s' not found." % (app_name))
 
@@ -62,7 +61,7 @@ class _ApplicationKeywords(KeywordGroup):
             if not App(self.application_name).isRunning():
                 App.open(self.application_path)
             else:
-                App.focus(app_name)
+                App(app_name).focus()
         else:
             raise AssertionError("Application path '%s' not found." % (path))
 
