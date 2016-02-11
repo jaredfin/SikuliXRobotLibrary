@@ -11,7 +11,7 @@ class _RunOnFailureKeywords(KeywordGroup):
 
     # Public
 
-    def register_keyword_to_run_on_failure(self, keyword):
+    def sikulix_register_keyword_to_run_on_failure(self, keyword):
         """Sets the keyword to execute when a Selenium2Library keyword fails.
 
         `keyword` is the name of a keyword (from any available
@@ -29,9 +29,9 @@ class _RunOnFailureKeywords(KeywordGroup):
         value later.
 
         Example:
-        | Register Keyword To Run On Failure  | Log Source | # Run `Log Source` on failure. |
-        | ${previous kw}= | Register Keyword To Run On Failure  | Nothing    | # Disables run-on-failure functionality and stores the previous kw name in a variable. |
-        | Register Keyword To Run On Failure  | ${previous kw} | # Restore to the previous keyword. |
+        | SikuliX Register Keyword To Run On Failure  | Log Source | # Run `Log Source` on failure. |
+        | ${previous kw}= | SikuliX Register Keyword To Run On Failure  | Nothing    | # Disables run-on-failure functionality and stores the previous kw name in a variable. |
+        | SikuliX Register Keyword To Run On Failure  | ${previous kw} | # Restore to the previous keyword. |
 
         This run-on-failure functionality only works when running tests on Python/Jython 2.4
         or newer and it does not work on IronPython at all.

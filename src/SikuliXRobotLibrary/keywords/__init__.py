@@ -8,6 +8,7 @@ from _region import _RegionKeywords
 from _run_on_failure import _RunOnFailureKeywords
 from _logging import _LoggingKeywords
 from _screenshot import _ScreenshotKeywords
+from _text_recognition import _TextRecognitionKeywords
 from _waiting import _WaitingKeywords
 
 __all__ = [
@@ -21,5 +22,6 @@ __all__ = [
     "_RegionKeywords",
     "_RunOnFailureKeywords",
     "_ScreenshotKeywords",
+    "_TextRecognitionKeywords",
     "_WaitingKeywords"
 ]

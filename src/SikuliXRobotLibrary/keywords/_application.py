@@ -9,13 +9,6 @@ class _ApplicationKeywords(KeywordGroup):
     
     # Public
     
-    class _ApplicationKeywords(KeywordGroup):
-    def __init__(self):
-        self.application_name = None
-        self.application_path = None
-    
-    # Public
-    
     def set_application_focus(self, app_name):
         """Sets focus to the open ``application`` matching the given ``app_name``.
         
@@ -26,7 +19,7 @@ class _ApplicationKeywords(KeywordGroup):
         self._set_application_name(app_name)
         try:
             App(self.application_name).focus()
-        except FinFailed, err:
+        except FindFailed, err:
             raise AssertionError("Application '%s' not found." % (app_name))
 
     def switch_application_focus(self, app_name):
@@ -40,7 +33,7 @@ class _ApplicationKeywords(KeywordGroup):
         self._set_application_name(app_name)
         try:
             switchApp(self.application_name)
-        except FinFailed, err:
+        except FindFailed, err:
             raise AssertionError("Application '%s' not found." % (app_name))
 
     def check_and_open_application(self, app_name, path):
@@ -59,7 +52,7 @@ class _ApplicationKeywords(KeywordGroup):
             self._set_application_name(app_name)
 
             if not App(self.application_name).isRunning():
-                App.open(self.application_path)
+                App(self.application_path).open()
             else:
                 App(app_name).focus()
         else:

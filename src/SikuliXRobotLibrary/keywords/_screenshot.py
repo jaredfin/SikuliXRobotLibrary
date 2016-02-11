@@ -99,13 +99,13 @@ class _ScreenshotKeywords(KeywordGroup):
         """
         path, link = self._get_screenshot_paths(filename)
         self._create_directory(path)
-        img_src = capture(*self._screenshot_targert_coordinates(target))
-        msg = "Captured Screenshot " + target + ":" + path + "\n"
+        img_src = capture(*self._screenshot_target_coordinates(target))
         shutil.copy(img_src, path)
+        msg = "Captured Screenshot " + target + ":" + path + "\n"
         self._html('%s </td></tr><tr><td colspan="3"><a href="%s">'
                    '<img src="%s"></a>' % (msg, link, link))
 
-    def _screenshot_targert_coordinates(self, target):
+    def _screenshot_target_coordinates(self, target):
         assert target is not None and len(target) > 0
         target = target.lower()
         if (target == "activeapp"):

@@ -16,6 +16,7 @@ class SikuliXRobotLibrary(
     _RegionKeywords,
     _RunOnFailureKeywords,
     _ScreenshotKeywords,
+    _TextRecognitionKeywords,
     _WaitingKeywords
     ):
 
@@ -114,5 +115,5 @@ class SikuliXRobotLibrary(
         self.sikulix_scanrate = sikulix_scanrate
         self.screenshot_directory = screenshot_directory
         self.target_screen = target_screen
-        self.register_keyword_to_run_on_failure(run_on_failure)
+        self.sikulix_register_keyword_to_run_on_failure(run_on_failure)
         self.ROBOT_LIBRARY_LISTENER = LibraryListener()

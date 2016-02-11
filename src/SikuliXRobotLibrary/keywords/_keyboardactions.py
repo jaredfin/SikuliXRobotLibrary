@@ -67,6 +67,14 @@ class _KeyboardActionsKeywords(KeywordGroup):
         string_param = string_param.strip()
         paste(string_param)
 
+    def get_result_from_clipboard(self):
+        """ Returns the result from the clipboard
+
+        Example:
+        | ${clipboardText}=    Get Result From Clipboard | # Returns the text from the clipboard and assigns the value to ${clipboardText} variable |
+        """
+        return str(Env.getClipboard())
+
     # Private
     """***************************** INTERNAL METHODS ************************************"""
     def _clean_string(self, string_param):

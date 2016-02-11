@@ -262,9 +262,12 @@ Sikulix's OCR is still not that perfect in recognizing texts yet, the demo test 
 
 SikuliX takes over the mouse pointer and keyboard control, you may opt to setup the scripts in another node in Jenkins then run it remotely.
 
-For capturing screenshots, I use IrfanView: http://www.irfanview.com/
+For capturing, slicing images and calculating the offset values of x, y, w and h, I am using:
+picpick: http://ngwin.com/picpick
 
-For calculating the offset values of x, y, w and h, I am using the pixel-ruler online tool: http://www.rapidtables.com/web/tools/pixel-ruler.htm
+Other similar tools for image capture and offset value calculations respectively are:
+IrfanView: http://www.irfanview.com/
+pixel-ruler online tool: http://www.rapidtables.com/web/tools/pixel-ruler.htm
 
 --------------------------------------
 

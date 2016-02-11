@@ -669,16 +669,13 @@ class _ElementKeywords(KeywordGroup):
         To do: dynamic search region where user can set the search region to either, active application, specific region or screen
         """
 
-        active_app_window = App.focusedWindow();
-        app_coordinates = (active_app_window.getX(), active_app_window.getY(), active_app_window.getW(), active_app_window.getH())
-        setROI(*app_coordinates)
         matching_pattern = self._pattern_finder._find_pattern(pattern)
         try:
             if (xoffset != None or yoffset != None):
                 xoffset = int(xoffset); yoffset = int(yoffset)
-                element = active_app_window.find(matching_pattern.targetOffset(xoffset, yoffset))
+                element = find(matching_pattern.targetOffset(xoffset, yoffset))
             else:
-                element = active_app_window.find(matching_pattern)
+                element = find(matching_pattern)
             return element
         except FindFailed, err:
             raise AssertionError("No matching pattern: %s found on screen." % (pattern))
