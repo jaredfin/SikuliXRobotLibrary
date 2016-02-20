@@ -8,7 +8,7 @@ Prerequisites: java 8, jython, robotframework, jybot, sikulixapi.jar with tesser
 Setup CLASSPATH AND JYTHONPATH in environment variables:
 
       CLASSPATH = <path to sikulixapi.jar>
-      JYTHONPATH = <path to sikulixapi.jar>\Lib
+      JYTHONPATH = <path to sikulixapi.jar>\Lib;<path to sikulixapi.jar>\org
 
 Install the SikuliXRobotLibrary:
 
