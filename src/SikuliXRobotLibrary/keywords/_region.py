@@ -113,14 +113,14 @@ class _RegionKeywords(KeywordGroup):
         setROI(*new_coordinates)
         #setRect(*new_coordinates)
 
-    def set_new_search_region_in_target_screen(self, offsets, target_screen):
+    def set_new_search_region_in_target_screen(self, target_screen, offsets):
         """Sets new ROI or new search area to a specified ``offsets`` based on original coordinate values of `target screen`.
 
         See also `Set Search Region To Target Screen`, `Set New Search Region In Active App`, `Set Search Region To Application`,
         `Set Search Region To Active App` and `Set New Search Region In Application`.
 
         Example:
-        | Set New Search Region In Target Screen | 10, 60, -20, -270 | Screen 0 |
+        | Set New Search Region In Target Screen | Screen 0 | 10, 60, -20, -270 |
         # Offsets x, y, height, width of the Primary Monitor to 10, 60, -20, -270 pixels respectively.
         """
         self._info("Setting new search region to offsets '%s' of '%s'." % (offsets, target_screen))
@@ -139,8 +139,12 @@ class _RegionKeywords(KeywordGroup):
         setROI(*new_coordinates)
         #setRect(*new_coordinates)
 
-    def get_active_screen_coordinates(self, target_screen):
+    def get_screen_coordinates(self, target_screen):
         """Returns the ``coordinates`` of the screen as specified in `target_screen`.
+
+        Example:
+        | Get Screen Coordinates | 0 | # Gets the coordinates of Screen 0 |
+        | Get Screen Coordinates | 1 | # Gets the coordinates of Screen 1 |
         """
         screen_number = self._parse_target_screen(target_screen)
         coordinates = (Screen(screen_number).getX(), 
@@ -154,8 +158,8 @@ class _RegionKeywords(KeywordGroup):
         Keyword must be combined with `Set Application Focus`.
 
         Examples:
-        | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`      |
-        | Get Active App Coordinates |                |# Gets the coordinates of `My Awesome App` |
+        | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`       |
+        | Get Active App Coordinates |                | # Gets the coordinates of `My Awesome App` |
         """
         activeWindow = App.focusedWindow()
         coordinates = (activeWindow.getX(), 
@@ -167,9 +171,8 @@ class _RegionKeywords(KeywordGroup):
     def get_application_coordinates(self, app_name):
         """Returns the ``coordinates`` of the `application` in focus.
 
-        Examples:
-        | Set Application Focus      | My Awesome App | # Sets the focus to `My Awesome App`      |
-        | Get Active App Coordinates |                |# Gets the coordinates of `My Awesome App` |
+        Example:
+        | Get Application Coordinates | My Awesome App | # Gets the coordinates of `My Awesome App` |
         """
         applicationWindow = App(app_name).window()
         coordinates = (applicationWindow.getX(), 
@@ -178,39 +181,51 @@ class _RegionKeywords(KeywordGroup):
                        applicationWindow.getH())
         return coordinates
 
-    def get_application_xywh_coordinate(self, app_name, coordinate):
-        """Returns the ``xy coordinate`` or the ``width`` or ``height`` of the `application` as specified in `app_name`.
+    def get_application_xywh_coordinate(self, app_name, coordinate_name):
+        """Returns the ``x``, ``y`` coordinate or the ``width`` or ``height`` of the `application` as specified in `app_name`.
+
+        Examples:
+        | Get Application XYWH Coordinates | My App | x | # Gets the x coordinate of `My App` |
+        | Get Application XYWH Coordinates | My App | y | # Gets the y coordinate of `My App` |
+        | Get Application XYWH Coordinates | My App | w | # Gets the w coordinate of `My App` |
+        | Get Application XYWH Coordinates | My App | h | # Gets the h coordinate of `My App` |
         """
-        self._info("Getting'%s' value for application '%s." % (coordinate, app_name))
-        assert coordinate is not None and len(coordinate) > 0
+        self._info("Getting'%s' value for application '%s." % (coordinate_name, app_name))
+        assert coordinate_name is not None and len(coordinate_name) > 0
         applicationWindow = App(app_name).window()
-        if (coordinate == x):
+        if (coordinate_name == x):
             return applicationWindow.x
-        elif (coordinate == y):
+        elif (coordinate_name == y):
             return applicationWindow.y
-        elif (coordinate == w):
+        elif (coordinate_name == w):
             return applicationWindow.w
-        elif (coordinate == h):
+        elif (coordinate_name == h):
             return applicationWindow.h
         else:
-            raise ValueError("Invalid value for coordinate type, input value is: '%s'" % (coordinate))
+            raise ValueError("Invalid value for coordinate name, input value is: '%s'" % (coordinate_name))
 
-    def get_active_app_xywh_coordinate(self, coordinate):
-        """Returns the ``xy coordinate`` or the ``width`` or ``height`` of the active application in focus.
+    def get_active_app_xywh_coordinate(self, coordinate_name):
+        """Returns the ``x``, ``y`` coordinate or the ``width`` or ``height`` of the active application in focus.
+
+        Examples:
+        | Get Active App XYWH Coordinates | x | # Gets the x coordinate of the active application or the application in focus |
+        | Get Active App XYWH Coordinates | y | # Gets the y coordinate of the active application or the application in focus |
+        | Get Active App XYWH Coordinates | w | # Gets the w coordinate of the active application or the application in focus |
+        | Get Active App XYWH Coordinates | h | # Gets the h coordinate of the active application or the application in focus |
         """
-        self._info("Getting'%s' value for application '%s." % (coordinate, app_name))
-        assert coordinate is not None and len(coordinate) > 0
+        self._info("Getting'%s' value for application '%s." % (coordinate_name, app_name))
+        assert coordinate_name is not None and len(coordinate_name) > 0
         activeWindow = App.focusedWindow()
-        if (coordinate == x):
+        if (coordinate_name == x):
             return activeWindow.x
-        elif (coordinate == y):
+        elif (coordinate_name == y):
             return activeWindow.y
-        elif (coordinate == w):
+        elif (coordinate_name == w):
             return activeWindow.w
-        elif (coordinate == h):
+        elif (coordinate_name == h):
             return activeWindow.h
         else:
-            raise ValueError("Invalid value for coordinate type, input value is: '%s'" % (coordinate))
+            raise ValueError("Invalid value for coordinate name, input value is: '%s'" % (coordinate_name))
 
     def get_reference_pattern_coordinates(self, pattern):
         """Returns the ``coordinates`` of the element identified by ``pattern``.

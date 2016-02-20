@@ -35,7 +35,7 @@ class SikuliXRobotLibrary(
     *Set the Environment Variables*
     The following must be included in the environment variables:
     | `CLASSPATH` = <sikulixapi.jar's directory>      | # Must be setup in the environment variable in the test PC or Node |
-    | `JYTHONPATH` = <sikulixapi.jar's directory>/Lib | # Must be setup in the environment variable in the test PC or Node |
+    | `JYTHONPATH` = <sikulixapi.jar's directory>/Lib;<sikulixapi.jar's directory>/org | # Must be setup in the environment variable in the test PC or Node |
 
     = Installing the SikuliXRobotLibrary =
     | 1. Copy the ``SikuliXRobotLibrary`` to a local directory.                | 

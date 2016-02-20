@@ -145,8 +145,8 @@ class _ElementKeywords(KeywordGroup):
         See also `Type Text At Region`.
 
         Example:
-        | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app. |
-        | Paste Text At Region                 |  Hello World!    | # Pastes 'Hello World!' at specified ROI or search region. |
+        | Set New Search Region In Active App | 10, 60, -20, -270 | # Sets offset values to a region of active app.            |
+        | Paste Text At Region                | Hello World!      | # Pastes 'Hello World!' at specified ROI or search region. |
         """
         text = text.strip()
         reg = self.get_last_matching_region()
@@ -188,7 +188,6 @@ class _ElementKeywords(KeywordGroup):
         """
         self._info("Right-clicking last matched pattern.")
         rightClick()
-
 
     def hover_at_last_match(self):
         """Double-clicks the center x,y coordinate of a last match.
@@ -333,7 +332,7 @@ class _ElementKeywords(KeywordGroup):
         
         Examples:
         | Scroll From Pattern At Coordinates | pattern.png = 0.80 | Up = 10   | # Scroll up 10 steps.   |
-        | Scroll From Pattern At Coordinates | pattern.png = 0.80 |  Down = 10 | # Scroll down 10 steps. |
+        | Scroll From Pattern At Coordinates | pattern.png = 0.80 | Down = 10 | # Scroll down 10 steps. |
         """
         self.hover_at_pattern_at_coordinates(pattern, xoffset, yoffset)
         self._info("Scrolling '%s' in pattern '%s'  at coordinates '%s', '%s'." % (scroll, pattern, xoffset, yoffset))
@@ -478,17 +477,16 @@ class _ElementKeywords(KeywordGroup):
     Pattern sensitivity must be set at max level (0.99) in order to avoid false positives during image detections.
     """
 
-    def get_pattern_count_in_active_app(self, pattern):
-        """Returns the count of elements identified by ``pattern`` in the region of an active application.
+    def get_pattern_count(self, pattern):
+        """Returns the count of elements identified by ``pattern``.
 
-        Search region or setROI() value is set to the application in focus as default.
         Pattern sensitivity must be set at max level (0.99) in order to avoid false positives during image detections.
         Search for matching patterns is set to top > down > left > right.
         """
-        self._info("Getting count of pattern '%s' in active app." % pattern)
-        return len(self._get_all_patterns_in_active_app(pattern))
+        self._info("Getting count of pattern '%s'." % pattern)
+        return len(self._get_all_patterns(pattern))
 
-    def click_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def click_nth_pattern(self, pattern, pattern_index):
         """Perform a mouse ``click`` on the click point using the ``left`` button.
 
         Click point is at the `center` of the nth element identified by ``pattern``.
@@ -498,12 +496,12 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Click Nth Pattern In Active App | pattern.png = 0.99 | 3 | # Clicks the third instance of an element identified by pattern.png |
+        | Click Nth Pattern | pattern.png = 0.99 | 3 | # Clicks the third instance of an element identified by pattern.png |
         """
-        self._info("Clicking '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Clicking '%s'nth pattern '%s'." % (pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).click()
 
-    def right_click_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def right_click_nth_pattern(self, pattern, pattern_index):
         """Perform a mouse ``click`` on the click point using the ``right`` button.
 
         Click point is at the `center` of the nth element identified by ``pattern``.
@@ -513,12 +511,12 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Right Click Nth Pattern In Active App | pattern.png = 0.99 | 4 | # Right-clicks the fourth instance of an element identified by pattern.png |
+        | Right Click Nth Pattern | pattern.png = 0.99 | 4 | # Right-clicks the fourth instance of an element identified by pattern.png |
         """
-        self._info("Clicking '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Clicking '%s'nth pattern '%s'." % (pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).rightClick()
 
-    def double_click_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def double_click_nth_pattern(self, pattern, pattern_index):
         """Perform a mouse ``double-click`` on the click point using the ``left`` button.
 
         Click point is at the `center` of the nth element identified by ``pattern``.
@@ -528,13 +526,13 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Double Click Nth Pattern In Active App | pattern.png = 0.99 | 5 | # Double-clicks the fifth instance of an element identified by pattern.png |
+        | Double Click Nth Pattern | pattern.png = 0.99 | 5 | # Double-clicks the fifth instance of an element identified by pattern.png |
         """
 
-        self._info("Double-clicking '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Double-clicking '%s'nth pattern '%s'." % (pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).doubleClick()
 
-    def hover_at_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def hover_at_nth_pattern(self, pattern, pattern_index):
         """Hovers mouse pointer at the center the nth element identified by ``pattern``.
 
         This Keyword is useful when multiple patterns on screen is present.
@@ -543,13 +541,13 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Hover At Nth Pattern In Active App | pattern.png = 0.99 | 7 | # Hovers mouse pointer the seventh instance of an element identified by pattern.png |
+        | Hover At Nth Pattern | pattern.png = 0.99 | 7 | # Hovers mouse pointer the seventh instance of an element identified by pattern.png |
         """
 
-        self._info("Hovering at '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Hovering at '%s'nth pattern '%s'." % (pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).hover()
 
-    def highlight_nth_pattern_in_active_app(self, pattern, pattern_index, highlight_duration):
+    def highlight_nth_pattern(self, pattern, pattern_index, highlight_duration):
         """Highlights the nth element identified by ``pattern`` for a specified `highlight_duration` in seconds.
 
         This Keyword is useful when multiple patterns on screen is present.
@@ -558,17 +556,17 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Highlight Nth Pattern In Active App | pattern.png = 0.99 | 6   | 2   | 
+        | Highlight Nth Pattern | pattern.png = 0.99 | 6   | 2   | 
         # Highlights the sixth instance of an element identified by pattern.png for 2 seconds.
        
         """
 
-        self._info("Highlighting '%s'nth pattern '%s' in active app for '%s' second(s)." % (pattern_index, pattern, highlight_duration))
+        self._info("Highlighting '%s'nth pattern '%s'  for '%s' second(s)." % (pattern_index, pattern, highlight_duration))
         self._get_nth_pattern(pattern, pattern_index).highlight(highlight_duration)
 
-    def drag_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def drag_nth_pattern(self, pattern, pattern_index):
         """Drag the nth element identified by ``pattern``.
-        `Drag Nth Pattern In Active App` and `Drop At Nth Pattern In Active App` keywords must be used in pairs to complete a drag and drop action.
+        `Drag Nth Pattern ` and `Drop At Nth Pattern ` keywords must be used in pairs to complete a drag and drop action.
 
         This Keyword is useful when multiple patterns on screen is present.
         Search region or setROI() value is set to the application in focus as default.
@@ -576,16 +574,16 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Examples:
-        | Drag Nth Pattern In Active App    | pattern.png = 0.99 | 1  | # Drags the first instance of an element identified by pattern.png   |
-        | Drop At Nth Pattern In Active App | pattern.png = 0.99 | 13 | # Drops at the 13th instance of an element identified by pattern.png |
+        | Drag Nth Pattern    | pattern.png = 0.99 | 1  | # Drags the first instance of an element identified by pattern.png   |
+        | Drop At Nth Pattern | pattern.png = 0.99 | 13 | # Drops at the 13th instance of an element identified by pattern.png |
         """
 
-        self._info("Dragging '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Dragging '%s'nth pattern '%s'." % (pattern_index, pattern))
         drag(self._get_nth_pattern(pattern, pattern_index))
 
-    def drop_at_nth_pattern_in_active_app(self, pattern, pattern_index):
+    def drop_at_nth_pattern(self, pattern, pattern_index):
         """Drop at the nth element identified by ``pattern``.
-        `Drag Nth Pattern In Active App` and `Drop At Nth Pattern In Active App` keywords must be used in pairs to complete a drag and drop action.
+        `Drag Nth Pattern ` and `Drop At Nth Pattern ` keywords must be used in pairs to complete a drag and drop action.
 
         This Keyword is useful when multiple patterns on screen is present.
         Search region or setROI() value is set to the application in focus as default.
@@ -593,11 +591,11 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Examples:
-        | Drag Nth Pattern In Active App    | pattern.png = 0.99 | 13  | # Drags the 13th instance of an element identified by pattern.png   |
-        | Drop At Nth Pattern In Active App | pattern.png = 0.99 | 1 | # Drops at the first instance of an element identified by pattern.png |
+        | Drag Nth Pattern    | pattern.png = 0.99 | 13  | # Drags the 13th instance of an element identified by pattern.png   |
+        | Drop At Nth Pattern | pattern.png = 0.99 | 1   | # Drops at the first instance of an element identified by pattern.png |
         """
 
-        self._info("Dropping at '%s'nth pattern '%s' in active app." % (pattern_index, pattern))
+        self._info("Dropping at '%s'nth pattern '%s'." % (pattern_index, pattern))
         dropAt(self._get_nth_pattern(pattern, pattern_index))
 
     def drag_and_drop_from_nth_pattern(self, pattern1, pattern1_index, pattern2, pattern2_index):
@@ -617,17 +615,17 @@ class _ElementKeywords(KeywordGroup):
         dragDrop(self._get_nth_pattern(pattern1, pattern1_index),
                  self._get_nth_pattern(pattern2, pattern2_index))
 
-    def paste_text_in_nth_pattern_in_active_app(self, pattern, pattern_index, text):
+    def paste_text_in_nth_pattern(self, pattern, pattern_index, text):
         """Paste a `text` at `x/y` coordinates of the element identified by ``pattern``.
 
         Example:
         | Type Text In Pattern | pattern.png = 0.90 | This is a sample text. | # Type a text in element identified by pattern.png |
         """
 
-        self._info("Pasting text '%s' in '%s'nth pattern '%s' in active app." % (text, pattern_index, pattern))
+        self._info("Pasting text '%s' in '%s'nth pattern '%s'." % (text, pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).type(text)
 
-    def type_text_in_nth_pattern_in_active_app(self, pattern, pattern_index, text):
+    def type_text_in_nth_pattern(self, pattern, pattern_index, text):
         """Type a `text` in nth element identified by ``pattern``.
 
         This Keyword is useful when multiple patterns on screen is present.
@@ -636,10 +634,10 @@ class _ElementKeywords(KeywordGroup):
         Search for matching patterns is set to top > down > left > right.
 
         Example:
-        | Type Text At Nth Pattern In Active App | pattern.png = 0.90 | 3 | This is a sample text. | # Type a text in third element identified by pattern.png |
+        | Type Text At Nth Pattern | pattern.png = 0.90 | 3 | This is a sample text. | # Type a text in third element identified by pattern.png |
         """
 
-        self._info("Typing text '%s' in '%s'nth pattern '%s' in active app." % (text, pattern_index, pattern))
+        self._info("Typing text '%s' in '%s'nth pattern '%s'." % (text, pattern_index, pattern))
         self._get_nth_pattern(pattern, pattern_index).type(text)
 
     def get_text_in_nth_pattern(self, pattern, pattern_index, search_location):
@@ -754,12 +752,10 @@ class _ElementKeywords(KeywordGroup):
     def _set_image_order(self, match):
         return match.x, match.y
 
-    def _get_all_patterns_in_active_app(self, pattern):
-        self.set_search_region_to_active_app()
-        active_app_region = Region(*self.get_active_app_coordinates())
+    def _get_all_patterns(self, pattern):
         list_of_patterns = []; sorted_patterns = []
         try:
-            found_patterns =  active_app_region.findAll(self._pattern_finder._find_pattern(pattern))
+            found_patterns =  findAll(self._pattern_finder._find_pattern(pattern))
             while found_patterns.hasNext():
                 list_of_patterns.append(found_patterns.next())
             sorted_patterns = sorted(list_of_patterns, key=self._set_image_order)
@@ -769,5 +765,5 @@ class _ElementKeywords(KeywordGroup):
 
     def _get_nth_pattern(self, pattern, pattern_index):
         pattern_index = int(pattern_index) - 1
-        nth_pattern = self._get_all_patterns_in_active_app(pattern)[pattern_index]
+        nth_pattern = self._get_all_patterns(pattern)[pattern_index]
         return nth_pattern
