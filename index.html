@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sikulixrobotlibrary by jaredfin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Sikulixrobotlibrary</h1>
+      <h2 class="project-tagline">SikuliX library for Robot Framework</h2>
+      <a href="https://github.com/jaredfin/SikuliXRobotLibrary" class="btn">View on GitHub</a>
+      <a href="https://github.com/jaredfin/SikuliXRobotLibrary/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jaredfin/SikuliXRobotLibrary/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="custom-sikulix-library-for-robot-framework" class="anchor" href="#custom-sikulix-library-for-robot-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom SikuliX Library For Robot Framework</h1>
+
+<h2>
+<a id="tldr" class="anchor" href="#tldr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TLDR</h2>
+
+<p>Prerequisites: java 8, jython, robotframework, jybot, sikulixapi.jar with tesseract</p>
+
+<p>Setup CLASSPATH AND JYTHONPATH in environment variables:</p>
+
+<pre><code>  CLASSPATH = &lt;path to sikulixapi.jar&gt;
+  JYTHONPATH = &lt;path to sikulixapi.jar&gt;\Lib;&lt;path to sikulixapi.jar&gt;\org
+</code></pre>
+
+<p>Install the SikuliXRobotLibrary:</p>
+
+<pre><code>  git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
+  cd SikuliXRobotLibrary
+  jython setup.py install
+</code></pre>
+
+<p>Run The Demo:</p>
+
+<pre><code>  jybot -d LOGS -i Demotest demo\calc_test_suite
+</code></pre>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>SikuliXRobotLibrary is a gui recognition testing library for Robot Framework
+that leverages the SikuliX version 1.1.0 methods.</p>
+
+<p>It is modeled after the Selenium2Library library.</p>
+
+<ul>
+<li>More information about this library can be found in the <code>Keyword Documentation</code>_.</li>
+<li>Installation information is found in the <code>INSTALL.rst</code> file.</li>
+</ul>
+
+<h2>
+<a id="directory-layout" class="anchor" href="#directory-layout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directory Layout</h2>
+
+<p>demo/
+    A simple demonstration, with calculator application in Windows 8</p>
+
+<p>doc/
+    Keyword documentation</p>
+
+<p>src/
+    Python source code</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To write tests with Robot Framework and SikuliXRobotLibrary, 
+SikuliXRobotLibrary must be imported into your Robot test suite.
+See <code>Robot Framework User Guide</code>_ for more information.</p>
+
+<h2>
+<a id="preconditions" class="anchor" href="#preconditions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preconditions</h2>
+
+<p>SikuliXRobotLibrary supports Jython interpreters supported by the
+Robot Framework.</p>
+
+<p>SikuliXRobotLibrary depends on a few other Jython libraries, including
+of course Robot Framework. All dependencies are declared in setup.py.</p>
+
+<p>SikuliX must be installed with the Tesseract based OCR features. When running the sikulixsetup-1.1.0.jar,
+make sure to select the second and third options.</p>
+
+<h2>
+<a id="installing-from-source" class="anchor" href="#installing-from-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing from source</h2>
+
+<p>The source code can be retrieved either as a source distribution or as a clone
+of the main source repository. The installer requires Jython version 2.7 or
+newer. Install by running:</p>
+
+<pre><code>jython setup.py install
+</code></pre>
+
+<p>Note: In most linux systems, you need to have root privileges for installation.</p>
+
+<p>Uninstallation is achieved by deleting the installation directory and its
+contents from the file system. The default installation directory is
+<code>[JythonLibraries]/site-packages/robotframework_SikuliXRobotLibrary-1.0.0-py2.7.egg</code>.</p>
+
+<h2>
+<a id="verifying-installation" class="anchor" href="#verifying-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verifying Installation</h2>
+
+<p>Once you have installed SikuliXRobotLibrary it is a good idea to verify the installation. To verify installation start jython::</p>
+
+<pre><code> C:\&gt; jython
+</code></pre>
+
+<p>and then at the Jython prompt type::</p>
+
+<pre><code>&gt;&gt; import SikuliXRobotLibrary
+&gt;&gt;
+</code></pre>
+
+<p>If the jython command line interpretor returns with another prompt ('&gt;&gt;' as shown above) then your installation was successful.</p>
+
+<h2>
+<a id="troubleshooting-installation" class="anchor" href="#troubleshooting-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting Installation</h2>
+
+<p>The most common issue with installing SikuliXRobotLibrary is missing dependencies. An error like::</p>
+
+<pre><code>ImportError: No module named sikuli
+</code></pre>
+
+<p>indicates that you are missing the sikulixapi.jar package.  To correct this problem, install the sikulixapi.jar with tesseract
+then add the following in the environment variables::</p>
+
+<pre><code>  CLASSPATH = &lt;path to sikulixapi.jar&gt;
+  JYTHONPATH = &lt;path to sikulixapi.jar&gt;\Lib
+</code></pre>
+
+<p>Similarly if you receive "No module named ..." error message then you have another missing dependency.  To correct, use easy_install to install the missing package.</p>
+
+<p>.. _pip: <a href="http://www.pip-installer.org">http://www.pip-installer.org</a>
+.. _easy_install: <a href="http://pypi.python.org/pypi/setuptools">http://pypi.python.org/pypi/setuptools</a></p>
+
+<h2>
+<a id="running-the-demo" class="anchor" href="#running-the-demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the Demo</h2>
+
+<p>The demo directory contains an easily executable demo for Robot Framework
+using SikuliXRobotLibrary. To run the demo, run::</p>
+
+<pre><code>jybot -d &lt;output directory&gt; -i &lt;tag&gt; &lt;suite directory&gt;
+</code></pre>
+
+<p>E.g.::</p>
+
+<pre><code>jybot -d C:\SikuliXRobotLibrary\demo\logs -i Demotest C:\SikuliXRobotLibrary\demo\calc_test_suite
+Note: C:\SikuliXRobotLibrary\demo\logs will be automatically created upon running the script
+</code></pre>
+
+<h2>
+<a id="keyword-documentation" class="anchor" href="#keyword-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Keyword Documentation</h2>
+
+<p><a href="https://pybot.wordpress.com/2015/10/31/sikulixrobotlibrary-keyword-documentation/">https://pybot.wordpress.com/2015/10/31/sikulixrobotlibrary-keyword-documentation/</a></p>
+
+<h2>
+<a id="robot-framework-user-guide" class="anchor" href="#robot-framework-user-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Robot Framework User Guide</h2>
+
+<p><a href="http://code.google.com/p/robotframework/wiki/UserGuide">http://code.google.com/p/robotframework/wiki/UserGuide</a></p>
+
+<h2>
+<a id="eli5-installation-instructions-windows-7-or-8" class="anchor" href="#eli5-installation-instructions-windows-7-or-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ELI5 Installation Instructions (Windows 7 or 8)</h2>
+
+<ol>
+<li>
+<p>Install Java 8. </p>
+
+<p>Link: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+
+<p>i. Run java -version in command prompt, java version should be displayed, otherwise, add C:\Program Files\Java\jre\bin in Environment Variable</p>
+</li>
+<li>
+<p>Install Jython 2.7:</p>
+
+<p>Link: <a href="http://www.jython.org/downloads.html">http://www.jython.org/downloads.html</a></p>
+
+<p>i. Download the installer then make sure to accept the license agreement during installation</p>
+
+<p>ii. Add 'C:\jython2.7.0\bin' in Environment variables</p>
+
+<p>iii. Check if jython is installed, run 'jython --version' command in command prompt, if successful, the following will be displayed</p>
+
+<pre><code>  Jython 2.7.0
+</code></pre>
+</li>
+<li>
+<p>Install Robotframework from the source:</p>
+
+<p>Link: <a href="https://pypi.python.org/pypi/robotframework">https://pypi.python.org/pypi/robotframework</a></p>
+
+<p>i. Download and extract the rf source (robotframework-2.9.2.tar.gz (md5)) to a local directory</p>
+
+<p>ii. cd to the extracted directory where <code>setup.py</code> is located</p>
+
+<p>iii. Open a command prompt and run: </p>
+
+<pre><code>jython setup.py install
+
+* jybot.bat will be created in C:\jython2.7.0\bin
+* C:\jython2.7.0\Lib\site-packages\robotframework-2.9.2-py2.7.egg will be created
+</code></pre>
+
+<p>iv. Run jybot --version in command prompt, if successful, the following will be displayed:</p>
+
+<pre><code>Robot Framework 2.9.2 (Jython 2.7.0 on java1.8.0_60)
+</code></pre>
+</li>
+<li>
+<p>Install SikuliX v1.1.0.</p>
+
+<p>Link: <a href="https://launchpad.net/sikuli/sikulix/1.1.0">https://launchpad.net/sikuli/sikulix/1.1.0</a></p>
+
+<p>i. Download sikulixsetup-1.1.0.jar (md5) in a local directory</p>
+
+<ul>
+<li>C:\SikuliX1.1.0</li>
+</ul>
+
+<p>ii. Double-click the sikulixsetup-1.1.0.jar file</p>
+
+<p>iii. Once the dialog for installation is launched, select options 2 and 3, i.e. Pack 2 and the tesseract (you may opt to install the IDE option 1 later, but backup the sikulixapi.jar first)</p>
+
+<pre><code>* if sucessful, the sikulixapi.jar will be created (must be 24-25MB in size otherwise, there may be some missing files if a smaller jar file is created)
+</code></pre>
+</li>
+<li>
+<p>Add CLASSPATH: C:\SikuliX1.1.0\sikulixapi.jar and JYTHONPATH: C:\SikuliX1.1.0\sikulixapi.jar\Lib in Environment Variables.</p>
+
+<p>i. Right-click &gt; My Computer &gt; Properties &gt; Advanced system settings &gt; Environment Variables</p>
+
+<p>ii. Click New button. In Variable Name field, type CLASSPATH and in Variable Value, type C:\SikuliX1.1.0\sikulixapi.jar</p>
+
+<p>iii. Do the same thing for JYTHONPATH</p>
+</li>
+<li>
+<p>Install SikuliXRobotLibrary from source.</p>
+
+<p>Link: <a href="https://github.com/jaredfin/SikuliXRobotLibrary">https://github.com/jaredfin/SikuliXRobotLibrary</a></p>
+
+<p>i. Do the following in command prompt:</p>
+
+<pre><code>cd C:\
+git clone https://github.com/jaredfin/SikuliXRobotLibrary.git
+cd SikuliXRobotLibrary
+jython setup.py install
+
+* see https://github.com/jaredfin/SikuliXRobotLibrary for more installation instructions and troubleshooting
+</code></pre>
+</li>
+<li>
+<p>Run the demo calculator test suite.</p>
+
+<p>i. Do the following in command prompt:</p>
+
+<pre><code>cd C:\SikuliXRobotLibrary
+jybot -d LOGS -i DemoTest demo\calc_test_suite
+
+* if successful, this should run the following test:
+
+---------------------------------------------------------------------
+* Main Test file: CalculatorTest.robot
+
+*** Settings ***
+Documentation     Calculator test suite for the common operations. Does not use patterns as parameters in the keywords but uses offsets of regions instead
+Resource          CalculatorTestGivenWhenThen.robot
+Test Setup        Open "Calculator" Application
+Test Teardown     Close "Calculator" Application
+Default Tags      CalculatorTest    DemoTest
+Test Template     Functionality Test
+
+*** Test Cases ***    NUM1    OPERATION    NUM2    EXPECTED RESULT
+12 + 100 = 112         12     Plus         100       112
+9 + 9 = 18              9     Plus           9        18
+112 - 100 = 12        112     Minus        100        12
+119 - 9 = 110         119     Minus          9       110
+100 / 2 = 50          100     Divide         2        50
+1 / 4 = 0.25            1     Divide         4      0.25
+10 * 100 = 1000        10     Times        100      1000
+2 * 9 = 18              2     Times          9        18
+
+*** Keywords ***
+Functionality Test
+    [Arguments]    ${num1}    ${operation}    ${num2}    ${expected_result}
+    Given User Calculates "${num1}" "${operation}" "${num2}"
+    When User Clicks "Equals" Button
+    Then Actual Result Should Be Equal To "${expected_result}"
+
+---------------------------------------------------------------------
+* The SikuliXRobotLibrary library is set in the resource: CalculatorTestGlobalHelpers.robot
+
+*** Settings ***
+Library           SikuliXRobotLibrary
+</code></pre>
+</li>
+</ol>
+
+<p><img src="https://github.com/jaredfin/SikuliXRobotLibrary/raw/master/doc/sample_log.png" alt="RobotFramework Results Log"></p>
+
+<h2>
+<a id="additional-notes-" class="anchor" href="#additional-notes-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional Notes: </h2>
+
+<p>Sikulix's OCR is still not that perfect in recognizing texts yet, the demo test case only includes more than 1 digit on expected results, single digits and repeating digits like 4444 seems to not return any texts when read by the OCR. you may play with the test cases by assigning different values in the arguments of the test cases</p>
+
+<p>SikuliX takes over the mouse pointer and keyboard control, you may opt to setup the scripts in another node in Jenkins then run it remotely.</p>
+
+<p>For capturing, slicing images and calculating the offset values of x, y, w and h, I am using:
+picpick: <a href="http://ngwin.com/picpick">http://ngwin.com/picpick</a></p>
+
+<p>Other similar tools for image capture and offset value calculations respectively are:
+IrfanView: <a href="http://www.irfanview.com/">http://www.irfanview.com/</a>
+pixel-ruler online tool: <a href="http://www.rapidtables.com/web/tools/pixel-ruler.htm">http://www.rapidtables.com/web/tools/pixel-ruler.htm</a></p>
+
+<hr>
+
+<p>Created by Francis John P. Agunday</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jaredfin/SikuliXRobotLibrary">Sikulixrobotlibrary</a> is maintained by <a href="https://github.com/jaredfin">jaredfin</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
