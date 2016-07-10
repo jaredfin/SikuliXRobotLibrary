@@ -249,7 +249,7 @@ class _RegionKeywords(KeywordGroup):
     def get_active_screen_region(self):
         """Returns the ``region`` of the active screen.
         """
-        return Region(*self.get_active_screen_coordinates())
+        return Region(*self.get_screen_coordinates(0))
 
     def get_active_app_region(self):
         """Returns the ``region`` of the `application` in focus.

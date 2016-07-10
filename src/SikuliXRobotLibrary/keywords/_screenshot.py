@@ -114,7 +114,7 @@ class _ScreenshotKeywords(KeywordGroup):
             target = self.get_last_matching_coordinates()
         else:
             if(target.find('screen') != -1):
-                target = self.get_active_screen_coordinates(target)
+                target = self.get_screen_coordinates(target)
             else:
                 target = self.get_reference_pattern_coordinates(target)
         return target
